@@ -56,7 +56,7 @@ import { AccountService } from './account.service';
     BrowserModule,
     FormsModule,
     HttpClientModule
-    
+
   ],
   providers: [AccountService],
   bootstrap: [FirstComponent]
