@@ -1,28 +1,23 @@
 
 version: 0.2
+
 env:
   variables:
     S3_BUCKET: "ot-qa"
 phases:
   install:
     runtime-versions:
-      nodejs: 14
-  pre_build:
-    commands:
+      nodejs: 18
+  commands:
       - echo Installing source NPM dependencies...
-      - npm install -g @angular/cli@10.0.8
-      - npm install --legacy-peer-deps
+      - npm install
+      - npm install -g @angular/cli
   build:
     commands:
-      - echo Build started on `date`
-      - node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng build --prod
-  post_build:
-     commands:
-      - cp -R appspec.yml dist/
-      #- aws s3 cp dist s3://${S3_BUCKET} --recursive
-      - echo Build completed on `date`
+      -echo Build started
+      -ng build
 artifacts:
   files:
       - '**/*'
   base-directory: 'dist*'
-  discard-paths: no
+  discard-paths: yes
