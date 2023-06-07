@@ -14,10 +14,10 @@ phases:
       - npm install -g @angular/cli
   build:
     commands:
-      -echo Build started
-      -ng build
+      - echo Build started
+      - ng build
 artifacts:
   files:
       - '**/*'
   base-directory: 'dist*'
-  discard-paths: yes
+  discard-paths: no
