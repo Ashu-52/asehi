@@ -7,16 +7,22 @@ phases:
   install:
     runtime-versions:
       nodejs: 14
-  commands:
+  pre_build:
+    commands:
       - echo Installing source NPM dependencies...
-      - npm install -g @angular/cli
-      - npm install
+      - npm install -g @angular/cli@10.0.8
+      - npm install --legacy-peer-deps
   build:
     commands:
-      -echo Build started
-      -ng build
+      - echo Build started on `date`
+      - node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng build --prod
+  post_build:
+     commands:
+      - cp -R appspec.yml dist/
+      #- aws s3 cp dist s3://${S3_BUCKET} --recursive
+      - echo Build completed on `date`
 artifacts:
   files:
       - '**/*'
   base-directory: 'dist*'
-  discard-paths: yes
+  discard-paths: no
