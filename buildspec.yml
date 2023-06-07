@@ -1,0 +1,22 @@
+
+version: 0.2
+env:
+  variables:
+    S3_BUCKET: "ot-qa"
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+  commands:
+      - echo Installing source NPM dependencies...
+      - npm install -g @angular/cli
+      - npm install
+  build:
+    commands:
+      -echo Build started
+      -ng build
+artifacts:
+  files:
+      - '**/*'
+  base-directory: 'dist*'
+  discard-paths: yes

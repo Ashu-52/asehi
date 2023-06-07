@@ -1,0 +1,29 @@
+<table border="2px solid black" style="border-collapse: collapse;" align
+="center">
+<thead style="background-color: chocolate;">
+
+<th>SNO</th>
+<th>Name</th>
+<th>Capital</th>
+<th>Population</th>
+<th>Region</th>
+<th>Flag</th>
+</thead>
+
+<tbody>
+
+    <tr *ngFor="let obj of countriesData;let i=index">
+
+
+        <td>{{i+1}}</td>
+        <td>{{obj.name.common}}</td>
+        <td>{{obj.capital}}</td>
+        <td>{{obj.population}}</td>
+        <td>{{obj.region}}</td>
+        <td><img width="100px" height="50px" src="{{obj.flags.png}}"></td>
+        
+    </tr>
+</tbody>
+
+
+</table>

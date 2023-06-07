@@ -1,0 +1,35 @@
+<h1> DISPLAYING JSON DATA</h1>
+
+<div *ngFor="let user of users">
+
+        UserName : {{user.name}}  <br> <!-- JSON OBJECT NAME WITH KEY -->
+        Title    :{{user.title}} <br>
+        Salary   : {{user.salary}} <br>
+        
+        <div [ngSwitch]="user.department">
+            Department:
+            <span *ngSwitchCase="1"> IT </span>
+            <span *ngSwitchCase="2"> HR </span>
+            <span *ngSwitchCase="3"> MARKETING </span>
+            <span *ngSwitchCase="4"> FINANCE </span>
+            <span *ngSwitchDefault> OTHERS </span>
+        </div><br>
+ <!--
+        <div *ngIf="user.address.length>0">
+        Address: {{user.address}} 
+        </div><br>-->
+        
+        <div *ngIf="user.address.length>0">
+            Address: 
+            
+            <p *ngFor="let add of user.address">
+                  {{add}}               
+            </p>
+            </div>
+            
+
+            <div *ngIf="user.phone.length>0">
+                Phone Numbers: {{user.phone}} 
+            </div><br>
+
+</div>

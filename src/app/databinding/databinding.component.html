@@ -1,0 +1,43 @@
+<h1> Data Binding in Angular </h1>
+<br><br>
+<h2>String Interpoolation ====== Displaying the Business Logic data on HTML </h2>
+<!-- 
+<h3>UserName :   {{ getUserName() }}</h3>
+<h3>FirstName:   {{firstname}} </h3>
+<h3>LastName:    {{lastname}} </h3>
+<h3>EmailId:     {{email}} </h3>
+
+<br><br>
+<h2>Date:  {{ dateString}} </h2>
+
+<br><br>
+<button id="btnId" [disabled]="buttonStatus">Click Me</button>
+-->
+
+<br><br>
+<input type="text" placeholder="Enter Guest Name" #myInput>
+
+<button (click)="updateGuest(myInput.value)"> Submit</button>
+
+<br><br>
+
+Guest Name is  :    {{guestName}}
+
+
+<br><br><br>
+
+<h2> Two Way Data Binding</h2>
+
+<input type="text" placeholder="Two way Binding" [(ngModel)]="title">
+<br><br>
+<div style="text-align: left;">
+
+    Your Name is : {{title}}
+</div>
+
+
+<br><br>
+
+Product Status is 
+
+<p [ngStyle]="{backgroundColor:getColor()}">{{status}}</p>
