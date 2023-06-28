@@ -3,15 +3,6 @@ os: windows
 files:
   - source: dist\course
     destination: C:\var\www\my-angular-project
-permissions:
-  - object: C:\var\www\my-angular-project
-    pattern: '**'
-    mode: '0755'
-    owner: SYSTEM
-    group: Administrators
-    type:
-      - file
-      - directory
 hooks:
   ApplicationStart:
     - location: deploy-scripts\application-start-hook.ps1
