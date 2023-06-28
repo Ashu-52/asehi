@@ -1,18 +1,18 @@
 version: 0.0
-os: linux
+os: windows
 files:
-  - source: dist/course
-    destination: /var/www/my-angular-project
+  - source: dist\course
+    destination: C:\var\www\my-angular-project
 permissions:
-  - object: /var/www/my-angular-project
+  - object: C:\var\www\my-angular-project
     pattern: '**'
     mode: '0755'
-    owner: root
-    group: root
+    owner: SYSTEM
+    group: Administrators
     type:
       - file
       - directory
 hooks:
   ApplicationStart:
-    - location: deploy-scripts/application-start-hook.sh
+    - location: deploy-scripts\application-start-hook.ps1
       timeout: 300
